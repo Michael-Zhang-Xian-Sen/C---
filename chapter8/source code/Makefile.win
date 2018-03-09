@@ -1,0 +1,31 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.10
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = 6.o bulk.o
+LINKOBJ  = 6.o bulk.o
+LIBS     = -L"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/lib" -L"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/include" -I"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/include" -I"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"E:/新建文件夹 (2)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = 6.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+6.o: 6.cpp
+	$(CPP) -c 6.cpp -o 6.o $(CXXFLAGS)
+
+bulk.o: bulk.cpp
+	$(CPP) -c bulk.cpp -o bulk.o $(CXXFLAGS)
